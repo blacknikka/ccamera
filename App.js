@@ -1,8 +1,9 @@
 import { StackNavigator } from 'react-navigation';
 import React from 'react';
 import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-import CCamera from './components/camera'
+import CCamera from './src/components/camera'
 
+import HomeScreen from './src/screens/HomeScreen'
 
 export default class App extends React.Component {
     state = {
@@ -18,7 +19,7 @@ export default class App extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <CCamera />
+                <HomeScreen />
             </View>
         );
     }
@@ -27,7 +28,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 35,
         backgroundColor: '#ddd',
         alignItems: 'stretch',
         justifyContent: 'center',

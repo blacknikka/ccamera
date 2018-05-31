@@ -45,7 +45,7 @@ export default class CCamera extends React.Component {
                                     });
                                 }}>
                                 <Text
-                                    style={{ fontSize: 18, marginBottom: 10, color: 'white' }}>
+                                    style={{ fontSize: 18, marginLeft: 3, marginBottom: 20, color: 'white' }}>
                                     {' '}Flip{' '}
                                 </Text>
                             </TouchableOpacity>
