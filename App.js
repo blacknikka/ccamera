@@ -1,9 +1,10 @@
 import { createStackNavigator } from 'react-navigation';
 import HomeScreen from './src/screens/HomeScreen';
 
-const App = createStackNavigator({
-	Main: { screen: HomeScreen },
-},
+const App = createStackNavigator(
+	{
+		Main: { screen: HomeScreen },
+	},
 	{
 		navigationOptions: {
 			headerTitle: 'Cat Camera',
