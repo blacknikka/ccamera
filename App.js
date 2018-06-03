@@ -1,35 +1,25 @@
-import { StackNavigator } from 'react-navigation';
-import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-import CCamera from './src/components/camera'
+import { createStackNavigator } from 'react-navigation';
+import HomeScreen from './src/screens/HomeScreen';
 
-import HomeScreen from './src/screens/HomeScreen'
+const App = createStackNavigator({
+	Main: { screen: HomeScreen },
+},
+	{
+		navigationOptions: {
+			headerTitle: 'Cat Camera',
+			headerTintColor: '#fff',
+			headerBackTitle: null,
+			headerStyle: {
+				shadowColor: '#000',
+				shadowOffset: { width: 0, height: 2 },
+				shadowOpacity: 0.2,
+				shadowRadius: 2,
+				backgroundColor: '#265366',
+			},
+			headerTitleStyle: {
+				color: '#fff',
+			},
+		},
+	});
 
-export default class App extends React.Component {
-    state = {
-        counter: 0
-    }
-
-    ChangeText = () => {
-        this.setState(x => {
-            return { counter: x.counter + 1 }
-        });
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <HomeScreen />
-            </View>
-        );
-    }
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#ddd',
-        alignItems: 'stretch',
-        justifyContent: 'center',
-    },
-});
+export default App;
