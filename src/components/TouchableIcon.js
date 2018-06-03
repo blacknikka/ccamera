@@ -1,32 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, TouchableHighlight } from 'react-native';
 import { Font } from 'expo';
-//import fontAwsome from '../../assets/fonts/fontawesome-webfont.ttf';
-
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
 export default class TouchableIcon extends React.Component {
-	state = {
-		fontLoaded: false,
-	}
-
-	async componentWillMount() {
-		await Font.loadAsync({
-			FontAwesome: fontAwsome,
-		});
-		this.setState({ fontLoaded: true });
-	}
-
 	render() {
 		return (
 			<TouchableHighlight>
 				<View stye={styles.container}>
-					{
-						this.state.fontLoaded ? (
-							<Text style={[styles.circleButtonTitle, { color: textColor }]}>
-								{this.props.children}
-							</Text>
-						) : null
-					}
+					<FontAwesome name="cogs" size={25} style={{ color: 'red' }} />
 				</View>
 			</TouchableHighlight>
 		);
