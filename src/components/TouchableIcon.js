@@ -1,25 +1,28 @@
 import React from 'react';
-import { StyleSheet, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Font } from 'expo';
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default class TouchableIcon extends React.Component {
 	render() {
+		const { style } = this.props;
 		return (
-			<TouchableHighlight>
-				<View stye={styles.container}>
-					<FontAwesome name="cogs" size={25} style={{ color: 'red' }} />
+			<TouchableOpacity style={[styles.container, style]} >
+				<View>
+					<FontAwesome
+						name={this.props.icon}
+						size={this.props.fontSize ? this.props.fontSize : 55}
+					/>
 				</View>
-			</TouchableHighlight>
+			</TouchableOpacity>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		width: '100%',
-		backgroundColor: '#FFFDF6',
+		position: 'absolute',
+		bottom: 24,
 	},
 });
 
