@@ -5,9 +5,9 @@ import { FontAwesome } from '@expo/vector-icons';
 
 export default class TouchableIcon extends React.Component {
 	render() {
-		const { style } = this.props;
+		const { style, onPress } = this.props;
 		return (
-			<TouchableOpacity style={[styles.container, style]} >
+			<TouchableOpacity style={[styles.container, style]} onPress={onPress}>
 				<View>
 					<FontAwesome
 						name={this.props.icon}

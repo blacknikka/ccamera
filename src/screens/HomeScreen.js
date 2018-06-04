@@ -6,14 +6,29 @@ export default class HomeScreen extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<TouchableIcon style={styles.recording} icon='microphone' fontSize={60}>
-				</TouchableIcon>
+				<TouchableIcon
+					style={styles.recording}
+					icon='microphone'
+					fontSize={60}
+					onPress={() => {
+						this.props.navigation.navigate('Recording');
+					}}
+				/>
 
-				<TouchableIcon style={styles.settings} icon='cogs' fontSize={60}>
-				</TouchableIcon>
+				<TouchableIcon
+					style={styles.settings}
+					icon='cogs'
+					fontSize={60}
+					onPress={() => {
+						this.props.navigation.navigate('Setting');
+					}}
+				/>
 
-				<TouchableIcon style={styles.camera} icon='camera' fontSize={70}>
-				</TouchableIcon>
+				<TouchableIcon
+					style={styles.camera}
+					icon='camera'
+					fontSize={70}
+				/>
 			</View >
 		);
 	}
@@ -39,5 +54,3 @@ const styles = StyleSheet.create({
 		bottom: 30,
 	},
 });
-
-
