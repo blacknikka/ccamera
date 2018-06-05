@@ -9,7 +9,8 @@ export default class HomeScreen extends React.Component {
 				<TouchableIcon
 					style={styles.recording}
 					icon='microphone'
-					fontSize={60}
+					kind='Icon'
+					fontSize={50}
 					onPress={() => {
 						this.props.navigation.navigate('Recording');
 					}}
@@ -18,16 +19,28 @@ export default class HomeScreen extends React.Component {
 				<TouchableIcon
 					style={styles.settings}
 					icon='cogs'
-					fontSize={60}
+					kind='Icon'
+					fontSize={50}
 					onPress={() => {
 						this.props.navigation.navigate('Setting');
 					}}
 				/>
 
 				<TouchableIcon
+					style={styles.flip}
+					icon='md-reverse-camera'
+					kind='Ionicons'
+					fontSize={50}
+					onPress={() => {
+						// exchange inside and outside cameras
+					}}
+				/>
+
+				<TouchableIcon
 					style={styles.camera}
 					icon='camera'
-					fontSize={70}
+					kind='Icon'
+					fontSize={60}
 				/>
 			</View >
 		);
@@ -42,7 +55,7 @@ const styles = StyleSheet.create({
 	settings: {
 		position: 'absolute',
 		right: 20,
-		bottom: 30,
+		top: 30,
 	},
 	recording: {
 		position: 'absolute',
@@ -52,5 +65,10 @@ const styles = StyleSheet.create({
 	camera: {
 		position: 'absolute',
 		bottom: 30,
+	},
+	flip: {
+		position: 'absolute',
+		bottom: 30,
+		right: 20,
 	},
 });
