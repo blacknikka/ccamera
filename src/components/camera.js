@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera, Permissions } from 'expo';
-import isIphoneX from './isIphoneX';
 
 export default class CCamera extends React.Component {
     state = {
@@ -45,7 +44,7 @@ export default class CCamera extends React.Component {
                                     });
                                 }}>
                                 <Text
-                                    style={{ fontSize: 18, marginLeft: 3, marginBottom: 20, color: 'white' }}>
+                                    style={{ fontSize: 18, marginLeft: 3, marginBottom: 20, color: 'red' }}>
                                     {' '}Flip{' '}
                                 </Text>
                             </TouchableOpacity>
