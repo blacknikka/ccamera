@@ -3,59 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import TouchableIcon from '../components/TouchableIcon';
 import CCamera from '../components/camera';
 
-export default class HomeScreen extends React.Component {
-    render() {
-        return (
-            <View style={styles.container}>
-                <CCamera />
-                <TouchableIcon
-                    style={styles.picture}
-                    icon='image'
-                    kind='Icon'
-                    fontSize={40}
-                />
-
-                <TouchableIcon
-                    style={styles.settings}
-                    icon='cogs'
-                    kind='Icon'
-                    fontSize={50}
-                    onPress={() => {
-                        this.props.navigation.navigate('Setting');
-                    }}
-                />
-
-                <TouchableIcon
-                    style={styles.flip}
-                    icon='md-reverse-camera'
-                    kind='Ionicons'
-                    fontSize={50}
-                    onPress={() => {
-                        // exchange inside and outside cameras
-                    }}
-                />
-
-                <TouchableIcon
-                    style={styles.cameraicon}
-                    icon='camera'
-                    kind='Icon'
-                    fontSize={60}
-                />
-
-                <TouchableIcon
-                    style={styles.recording}
-                    icon='microphone'
-                    kind='Icon'
-                    fontSize={50}
-                    onPress={() => {
-                        this.props.navigation.navigate('Recording');
-                    }}
-                />
-            </View>
-        );
-    }
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -88,3 +35,59 @@ const styles = StyleSheet.create({
         left: 20,
     },
 });
+
+const HomeScreen = (props) => {
+    const result = (
+        <View style={styles.container}>
+            <CCamera />
+            <TouchableIcon
+                style={styles.picture}
+                icon="image"
+                kind="Icon"
+                fontSize={40}
+            />
+
+            <TouchableIcon
+                style={styles.settings}
+                icon="cogs"
+                kind="Icon"
+                fontSize={50}
+                onPress={() => {
+                    props.navigation.navigate('Setting');
+                }}
+            />
+
+            <TouchableIcon
+                style={styles.flip}
+                icon="md-reverse-camera"
+                kind="Ionicons"
+                fontSize={50}
+                onPress={() => {
+                    // exchange inside and outside cameras
+                }}
+            />
+
+            <TouchableIcon
+                style={styles.cameraicon}
+                icon="camera"
+                kind="Icon"
+                fontSize={60}
+            />
+
+            <TouchableIcon
+                style={styles.recording}
+                icon="microphone"
+                kind="Icon"
+                fontSize={50}
+                onPress={() => {
+                    props.navigation.navigate('Recording');
+                }}
+            />
+        </View>
+    );
+
+    return result;
+};
+
+export default HomeScreen;
+

@@ -1,18 +1,21 @@
 import React from 'react';
-import { StyleSheet, View, TouchableHighlight } from 'react-native';
-
-export default class SettingScreen extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-			</View >
-		);
-	}
-}
+import { StyleSheet, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		alignItems: 'center',
-	},
+    container: {
+        flex: 1,
+        alignItems: 'center',
+    },
 });
+
+const SettingScreen = () => {
+    const result = (
+        <View style={styles.container}>
+            <Text>settings</Text>
+        </View >
+    );
+
+    return result;
+};
+
+export default SettingScreen;

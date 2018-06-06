@@ -4,13 +4,11 @@ import HomeScreen from './src/screens/HomeScreen';
 import SettingScreen from './src/screens/SettingScreen';
 import RecordingScreen from './src/screens/RecordingScreen';
 
-const App = createStackNavigator(
-    {
-        Main: { screen: HomeScreen },
-        Setting: { screen: SettingScreen },
-        Recording: { screen: RecordingScreen },
-    },
-    {
+const App = createStackNavigator({
+    Main: { screen: HomeScreen },
+    Setting: { screen: SettingScreen },
+    Recording: { screen: RecordingScreen },
+}, {
         navigationOptions: {
             headerTitle: 'Cat Camera',
             headerTintColor: '#fff',
@@ -26,7 +24,6 @@ const App = createStackNavigator(
                 color: '#fff',
             },
         },
-    },
-);
+    });
 
 export default App;

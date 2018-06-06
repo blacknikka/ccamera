@@ -3,13 +3,27 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+const styles = StyleSheet.create({
+    container: {
+        width: 65,
+        height: 65,
+        borderRadius: 40,
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
 export default class TouchableIcon extends React.Component {
+
     iconSwitcher() {
         if (this.props.kind === 'Icon') {
-            return (<Icon
-                name={this.props.icon}
-                size={this.props.fontSize ? this.props.fontSize : 50}
-            />);
+            return (
+                <Icon
+                    name={this.props.icon}
+                    size={this.props.fontSize ? this.props.fontSize : 50}
+                />
+            );
         }
         else {
             return (
@@ -22,7 +36,7 @@ export default class TouchableIcon extends React.Component {
     }
 
     render() {
-        const { style, onPress, iconSize } = this.props;
+        const { style, onPress } = this.props;
         return (
             <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
                 <View >
@@ -32,15 +46,4 @@ export default class TouchableIcon extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        width: 65,
-        height: 65,
-        borderRadius: 40,
-        backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
 
