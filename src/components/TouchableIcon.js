@@ -15,24 +15,27 @@ const styles = StyleSheet.create({
 });
 
 export default class TouchableIcon extends React.Component {
-
     iconSwitcher() {
+        let result = null;
+
         if (this.props.kind === 'Icon') {
-            return (
-                <Icon
-                    name={this.props.icon}
-                    size={this.props.fontSize ? this.props.fontSize : 50}
-                />
-            );
-        }
-        else {
-            return (
+            result =
+                (
+                    <Icon
+                        name={this.props.icon}
+                        size={this.props.fontSize ? this.props.fontSize : 50}
+                    />
+                );
+        } else {
+            result = (
                 <Ionicons
                     name={this.props.icon}
                     size={this.props.fontSize ? this.props.fontSize : 50}
                 />
             );
         }
+
+        return result;
     }
 
     render() {
