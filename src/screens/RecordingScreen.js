@@ -1,19 +1,58 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import {
+    StyleSheet,
+    View,
+    Text,
+    Switch,
+} from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         alignItems: 'center',
+        flexDirection: 'row',
+    },
+    soundEnableText: {
+        fontSize: 18,
+        margin: 10,
+    },
+    soundEnableSwitch: {
+        margin: 10,
     },
 });
 
-const RecordingScreen = () => (
-    <View style={styles.container}>
-        <Text>
-            aaaa
-        </Text>
-    </View >
-);
+export default class RecordingScreen extends React.Component {
+    constructor(props) {
+        super(props);
 
-export default RecordingScreen;
+        this.state = {
+            switching: true,
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(value) {
+        console.log(value);
+        this.setState({
+            switching: value,
+        });
+    }
+
+    render() {
+        return (
+            <View style={{ flex: 1 }} >
+                <View style={styles.container}>
+                    <Text style={styles.soundEnableText} >
+                        Sound Enable
+                    </Text>
+
+                    <Switch
+                        onValueChange={this.handleChange}
+                        value={this.state.switching}
+                        style={styles.soundEnableSwitch}
+                    />
+                </View >
+            </View >
+        );
+    }
+}
