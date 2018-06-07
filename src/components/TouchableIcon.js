@@ -19,13 +19,12 @@ export default class TouchableIcon extends React.Component {
         let result = null;
 
         if (this.props.kind === 'Icon') {
-            result =
-                (
-                    <Icon
-                        name={this.props.icon}
-                        size={this.props.fontSize ? this.props.fontSize : 50}
-                    />
-                );
+            result = (
+                <Icon
+                    name={this.props.icon}
+                    size={this.props.fontSize ? this.props.fontSize : 50}
+                />
+            );
         } else {
             result = (
                 <Ionicons
