@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         left: 20,
         bottom: 30,
     },
-    cameraicon: {
+    cameraIcon: {
         position: 'absolute',
         bottom: 30,
         alignSelf: 'center',
@@ -37,9 +37,18 @@ const styles = StyleSheet.create({
 });
 
 const HomeScreen = (props) => {
+    // camera flip ref
+    const cameraFlip = React.createRef();
+
+    // when click 'flip button',
+    // camera component's 'FlipCamera' is fired
+    function handleClickFlipCamera() {
+        cameraFlip.current.FlipCamera();
+    }
+
     const result = (
         <View style={styles.container}>
-            <CCamera />
+            <CCamera ref={cameraFlip} />
             <TouchableIcon
                 style={styles.picture}
                 icon="image"
@@ -64,11 +73,13 @@ const HomeScreen = (props) => {
                 fontSize={50}
                 onPress={() => {
                     // exchange inside and outside cameras
+                    // ref is fired
+                    handleClickFlipCamera();
                 }}
             />
 
             <TouchableIcon
-                style={styles.cameraicon}
+                style={styles.cameraIcon}
                 icon="camera"
                 kind="Icon"
                 fontSize={60}

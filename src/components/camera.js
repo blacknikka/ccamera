@@ -6,11 +6,6 @@ const styles = StyleSheet.create({
     cameraContainer: {
         flex: 1,
     },
-    cameraStyle: {
-        flex: 1,
-        backgroundColor: 'transparent',
-        flexDirection: 'row',
-    },
     TouchableOpacityStyle: {
         flex: 0.1,
         alignSelf: 'flex-end',
@@ -35,13 +30,23 @@ export default class CCamera extends React.Component {
         this.setState({ hasCameraPermission: status === 'granted' });
     }
 
+    // change camera that inside and outside
+    FlipCamera() {
+        console.log('clicked f');
+        this.setState({
+            type: this.state.type === Camera.Constants.Type.back
+                ? Camera.Constants.Type.front
+                : Camera.Constants.Type.back,
+        });
+    }
+
     render() {
         const { hasCameraPermission } = this.state;
         if (hasCameraPermission === null) {
             return (
                 <View>
                     <Text style={styles.CameraText}>
-                        no camera parmission
+                        no camera permission
                     </Text>
                 </View>
             );
@@ -54,26 +59,7 @@ export default class CCamera extends React.Component {
         }
         return (
             <View style={styles.cameraContainer}>
-                <Camera style={{ flex: 1 }} type={this.state.type}>
-                    <View style={styles.cameraStyle}>
-                        <TouchableOpacity
-                            style={styles.TouchableOpacityStyle}
-                            onPress={() => {
-                                this.setState({
-                                    type: this.state.type === Camera.Constants.Type.back
-                                        ? Camera.Constants.Type.front
-                                        : Camera.Constants.Type.back,
-                                });
-                            }}>
-                            <Text
-                                style={{
-                                    fontSize: 18, marginLeft: 3, marginBottom: 20, color: 'red',
-                                }}>
-                                {' '}Flip{' '}
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                </Camera>
+                <Camera style={{ flex: 1 }} type={this.state.type} />
             </View>
         );
     }
