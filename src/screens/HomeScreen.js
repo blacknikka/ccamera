@@ -40,11 +40,13 @@ const HomeScreen = (props) => {
     // camera flip ref
     const cameraFlip = React.createRef();
 
-    // when click 'flip button',
-    // camera component's 'FlipCamera' is fired
-    function handleClickFlipCamera() {
-        cameraFlip.current.FlipCamera();
-    }
+    // change sound icon
+    const changeSoundEnable = React.createRef();
+
+    // change sound enable/disable
+    const changeSoundState = (state) => {
+        changeSoundEnable.current.changeIcon(state ? 'microphone' : 'microphone-slash');
+    };
 
     const result = (
         <View style={styles.container}>
@@ -74,7 +76,7 @@ const HomeScreen = (props) => {
                 onPress={() => {
                     // exchange inside and outside cameras
                     // ref is fired
-                    handleClickFlipCamera();
+                    cameraFlip.current.FlipCamera();
                 }}
             />
 
@@ -91,8 +93,9 @@ const HomeScreen = (props) => {
                 kind="Icon"
                 fontSize={50}
                 onPress={() => {
-                    props.navigation.navigate('Recording');
+                    props.navigation.navigate('Recording', { changeSoundState });
                 }}
+                ref={changeSoundEnable}
             />
         </View>
     );
