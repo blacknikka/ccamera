@@ -10,13 +10,16 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         flexDirection: 'row',
+
     },
     soundEnableText: {
         fontSize: 18,
-        margin: 10,
+        marginLeft: 20,
+        flexWrap: 'wrap',
     },
     soundEnableSwitch: {
         margin: 10,
+        right: 20,
     },
 });
 
